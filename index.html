@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>CT 310 Assignment 8</title>
+<style>
+	body {
+		background-color:black;
+		color:green;
+		text-align:center;
+	}
+	</style>
+<script src="assets/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	  $("#imgButton").click(function(){
+	   $.ajax( {
+		   type: 'GET',
+		   url: 'https://www.cs.colostate.edu/~ct310/yr2017sp/more_assignments/assgn08/getrandomimage.php',
+		   success: function(data) {
+			   $('#im').html('<img src="data:image/png;base64,' + data + '"/>');
+		   }
+	   });
+	  });
+	});
+</script>
+</head>
+<body>
+	<h1>CT 310 Assignemnt 8: Ajax & jQuery</h1>
+	<div id="contents">
+		<p>
+			Click button below to display a random image<br><br>
+			<span id="im"></span>
+		</p>
+		<p>
+			<button id="imgButton">Load Image</button>
+		</p>
+	</div>
+	<div class="footer">
+		<p>&copy 2017 Nathan Barteaux<br>Colorado State University</p>
+	</div>
+</body>
+</html>
